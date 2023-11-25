@@ -30,7 +30,7 @@ jobs:
       - name: "create comment with api"
         run: 
           gh api -X POST \
-            http://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER/comments \
+            http://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
             -f body=" this is a comment but from API call not the community action"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
