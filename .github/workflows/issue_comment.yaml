@@ -29,10 +29,11 @@ jobs:
     steps:
       - name: "create comment with api"
         run: |
-          gh api -X POST 
-            http://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
-            -f body=
-            'this is a comment but from API call not the community action'
+          gh api -X POST \
+            https://api.github.com/repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
+            -f body='
+            Comment but from the API call not action
+            '
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORGANIZATION: ${{ github.event.repository.owner.login }} #JSON structure changed
