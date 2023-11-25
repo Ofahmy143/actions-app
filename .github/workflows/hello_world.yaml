@@ -1,0 +1,30 @@
+name: hello world workflow 
+
+on: 
+  push:
+    branches:
+      - main
+    pull_request:
+      branches:
+        - main
+    # gives in ui clickable
+    workflow_dispatch:
+
+jobs:
+  hello:
+  # runner
+    runs-on: ubuntu-latest
+    steps:
+    # utilize an action created by github
+    # the @ can be followed by commit hash or commit or tag not just release
+      - uses: actions/checkout@v4
+      - name: hello workflow 
+        run: echo "hello world"
+        shell: bash
+
+  goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye world
+        run: echo "goodbye world"
+        shell: bash 
